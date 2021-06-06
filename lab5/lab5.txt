@@ -1,0 +1,31 @@
+---
+db.Ecollection.find().limit(10);
+
+db.Ecollection.find({}, { name: 1, description: 1, products: 1, number_of_employees: 1, founded_year: 1}).limit(10)
+
+db.Ecollection.find({}, { name: 1, description: 1, products: 1, number_of_employees: 1, founded_year: 1}).limit(10).sort({number_of_employees: -1})
+
+db.Ecollection.find({number_of_employees: {$gt: 1000}}, { name: 1, description: 1, products: 1, number_of_employees: 1, founded_year: 1}).limit(10).sort({number_of_employees: -1})
+
+db.Ecollection.find({founded_year: {$gt: 2000}, number_of_employees: {$gt: 1000}}, { name: 1, description: 1, products: 1, number_of_employees: 1, founded_year: 1}).limit(10).sort({number_of_employees: -1})
+
+db.Ecollection.find({founded_year: {$gt: 1990, $lt: 2000}, number_of_employees: {$gt: 1000, $lt: 10000}}, { name: 1, description: 1, products: 1, number_of_employees: 1, founded_year: 1}).limit(10).sort({number_of_employees: -1})
+---
+
+db.Ecollection.find({number_of_employees: {$gt: 1000}}).count()
+
+db.Ecollection.find({founded_year: {$gt: 2000}, number_of_employees: {$gt: 1000}}).count()
+
+db.Ecollection.find({founded_year: {$gt: 1990, $lt: 2000}, number_of_employees: {$gt: 1000, $lt: 10000}}).count()
+---
+
+db.Ecollection.aggregate([{$group: { foundedYear: "$founded_year", maxEmp: { $max: "$number_of_employees" } } }])
+
+db.Ecollection.aggregate([{$group: {_id: "$founded_year", maxEmp: {$max: "$number_of_employees" }}}, {$sort: { _id: 1}}])
+
+db.Ecollection.aggregate([{$match: {founded_year: {$nin: [null]}}}, {$group: {_id: "$founded_year", maxEmp: {$max: "$number_of_employees"}}}, {$sort: {_id: 1}}])
+
+db.Ecollection.aggregate([{ $match: { $and: [ { founded_year: { $nin: [null] } }, { number_of_employees: { $nin: [null] } } ] } }, { $group: {_id: "$founded_year", maxEmp: {$max: "$number_of_employees"}}}, {$sort: {_id: 1}}])
+
+
+
