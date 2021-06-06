@@ -1,0 +1,6 @@
+C:\Users\sinya\source\lab4 database\SqlServerInteraction.Console\bin\Debug\SqlServerInteraction.Console.exe.config
+C:\Users\sinya\source\lab4 database\SqlServerInteraction.Console\bin\Debug\SqlServerInteraction.Console.exe
+C:\Users\sinya\source\lab4 database\SqlServerInteraction.Console\bin\Debug\SqlServerInteraction.Console.pdb
+C:\Users\sinya\source\lab4 database\SqlServerInteraction.Console\obj\Debug\SqlServerInteraction.Console.exe
+C:\Users\sinya\source\lab4 database\SqlServerInteraction.Console\obj\Debug\SqlServerInteraction.Console.pdb
+C:\Users\sinya\source\lab4 database\SqlServerInteraction.Console\obj\Debug\SqlServerInteraction.Console.csprojAssemblyReference.cache
